@@ -1,0 +1,136 @@
+/* Basic Reset and Variables */
+:root {
+    --primary-color: #0077b6; /* A nice blue for accents */
+    --text-color: #333;
+    --bg-color: #f4f4f9;
+    --light-bg: #fff;
+    --dark-bg: #2d3748;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    /* Add padding to the top so content doesn't hide behind fixed navbar */
+    padding-top: 60px; 
+}
+
+/* Reusable Container */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    background: var(--dark-bg);
+    color: #fff;
+    position: fixed; /* Makes the bar stick to the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures it stays on top of other content */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.navbar .logo {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 15px;
+    transition: color 0.3s;
+}
+
+.navbar nav a:hover {
+    color: var(--primary-color); /* Highlight on hover */
+}
+
+
+/* --- Hero Section (Top of Page) --- */
+.hero-section {
+    background: var(--primary-color);
+    color: #fff;
+    min-height: 60vh; /* Takes up at least 60% of viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+}
+
+/* --- Content Sections --- */
+.content-section {
+    padding: 60px 0;
+    margin-bottom: 20px;
+    background: var(--light-bg);
+    border-bottom: 1px solid #ddd;
+}
+
+.content-section h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.content-section p {
+    margin-bottom: 20px;
+}
+
+.content-section a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.content-section a:hover {
+    text-decoration: underline;
+}
+
+/* Special style for the last section (optional) */
+.last-section {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+
+/* --- Footer --- */
+footer {
+    background: var(--dark-bg);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+}
