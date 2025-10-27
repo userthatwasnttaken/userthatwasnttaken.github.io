@@ -3,35 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Pages Test Site</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        .container {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        h1 {
-            color: #2c3e50;
-        }
-    </style>
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>It Works! 🎉</h1>
-        <p>This is a basic test page to confirm your GitHub Pages site is successfully set up and public.</p>
-        <p>You can now replace this <code>index.html</code> file with your actual website content.</p>
-        <hr>
-        <p>Deployed via GitHub Pages.</p>
-    </div>
+
+    <header class="navbar">
+        <div class="container">
+            <a href="#home" class="logo">Your Name/Alias</a>
+            <nav>
+                <a href="#cryptography">Cryptography</a>
+                <a href="#cybersecurity">Cybersecurity</a>
+                <a href="#mathematics">Mathematics</a>
+                <a href="#mycology">Mycology</a>
+                <a href="other-projects/" target="_blank">Other Projects</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="container">
+                <h1>Welcome to My Portfolio</h1>
+                <p>A showcase of work in technology, science, and more.</p>
+                <p class="scroll-prompt">Scroll down or use the navigation above to explore.</p>
+            </div>
+        </section>
+
+        <section id="cryptography" class="content-section">
+            <div class="container">
+                <h2>🔐 Cryptography</h2>
+                <p>Details about your projects, research, or interests in encryption, ciphers, and secure communications go here.</p>
+                <a href="#">Link to Project 1</a> | <a href="#">Link to Project 2</a>
+            </div>
+        </section>
+
+        <section id="cybersecurity" class="content-section">
+            <div class="container">
+                <h2>🛡️ Cybersecurity</h2>
+                <p>Showcase your work on penetration testing, security analysis, digital forensics, or general cyber defense strategies.</p>
+                <a href="#">Link to Tool/Writeup</a> | <a href="#">Link to Certification</a>
+            </div>
+        </section>
+
+        <section id="mathematics" class="content-section">
+            <div class="container">
+                <h2>➕ Mathematics</h2>
+                <p>Examples of your work in abstract algebra, number theory (highly relevant to cryptography), statistics, or data analysis.</p>
+                <a href="#">Link to Paper/Notebook</a>
+            </div>
+        </section>
+
+        <section id="mycology" class="content-section last-section">
+            <div class="container">
+                <h2>🍄 Mycology</h2>
+                <p>Your passion for fungi! Include links to identification guides, citizen science projects, or research on fungal ecosystems.</p>
+                <a href="#">Link to Photo Gallery</a> | <a href="#">Link to Field Notes</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Your Name. Built for GitHub Pages.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
