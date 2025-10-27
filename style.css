@@ -1,10 +1,16 @@
+\/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
 /* Basic Reset and Variables */
 :root {
-    --primary-color: #0077b6; /* A nice blue for accents */
-    --text-color: #333;
-    --bg-color: #f4f4f9;
-    --light-bg: #fff;
-    --dark-bg: #2d3748;
+    /* Darker, warmer professional palette */
+    --primary-color: #e67e22; /* A warm, inviting orange for accents */
+    --text-color: #f0f0f0;    /* Light text on dark background */
+    --bg-color: #2c3e50;      /* Main background - a dark, professional blue-grey */
+    --light-bg: #34495e;      /* Slightly lighter shade for sections */
+    --dark-bg: #212b36;       /* Even darker for navbar/footer */
+    --border-color: #4a6176;  /* Subtle border/separator color */
+    --hover-color: #f39c12;   /* A brighter orange for hover effects */
 }
 
 * {
@@ -14,12 +20,11 @@
 }
 
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Source Sans Pro', sans-serif; /* Primary font for readability */
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--bg-color);
-    /* Add padding to the top so content doesn't hide behind fixed navbar */
-    padding-top: 60px; 
+    padding-top: 60px; /* Space for fixed navbar */
 }
 
 /* Reusable Container */
@@ -33,13 +38,13 @@ body {
 /* --- Navigation Bar --- */
 .navbar {
     background: var(--dark-bg);
-    color: #fff;
-    position: fixed; /* Makes the bar stick to the top */
+    color: var(--text-color);
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /* Ensures it stays on top of other content */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); /* Darker shadow */
 }
 
 .navbar .container {
@@ -50,87 +55,124 @@ body {
 }
 
 .navbar .logo {
-    color: #fff;
+    color: var(--primary-color); /* Highlight logo with primary color */
     text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.6rem; /* Slightly larger logo */
+    font-weight: 700; /* Bold */
+    letter-spacing: 0.5px;
 }
 
 .navbar nav a {
-    color: #fff;
+    color: var(--text-color);
     text-decoration: none;
-    padding: 0 15px;
-    transition: color 0.3s;
+    padding: 0 18px; /* Slightly more spacing */
+    transition: color 0.3s ease-in-out;
+    font-weight: 400;
 }
 
 .navbar nav a:hover {
-    color: var(--primary-color); /* Highlight on hover */
+    color: var(--hover-color); /* Brighter orange on hover */
 }
 
 
 /* --- Hero Section (Top of Page) --- */
 .hero-section {
-    background: var(--primary-color);
-    color: #fff;
-    min-height: 60vh; /* Takes up at least 60% of viewport height */
+    background: linear-gradient(135deg, var(--bg-color) 0%, var(--light-bg) 100%); /* Subtle gradient */
+    color: var(--text-color);
+    min-height: 70vh; /* Make it a bit taller */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    border-bottom: 2px solid var(--border-color); /* Subtle separation */
 }
 
 .hero-section h1 {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
+    font-size: 3.5rem; /* Larger hero title */
+    margin-bottom: 0.7rem;
+    color: var(--primary-color);
+    font-weight: 700;
 }
 
 .hero-section p {
-    font-size: 1.2rem;
+    font-size: 1.3rem; /* Larger hero text */
+    max-width: 800px;
+    margin: 0 auto;
+    font-weight: 300;
+}
+
+.hero-section .scroll-prompt {
+    font-size: 1rem;
+    margin-top: 25px;
+    opacity: 0.8;
 }
 
 /* --- Content Sections --- */
 .content-section {
-    padding: 60px 0;
-    margin-bottom: 20px;
+    padding: 80px 0; /* More vertical padding */
+    margin-bottom: 0; /* No margin between sections, use border */
     background: var(--light-bg);
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--border-color); /* Subtle separation */
+}
+
+.content-section:nth-child(even) { /* Alternate background for better visual separation */
+    background: var(--bg-color);
 }
 
 .content-section h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
+    font-size: 2.5rem; /* Larger section titles */
+    margin-bottom: 25px;
     color: var(--primary-color);
-    border-bottom: 2px solid var(--primary-color);
+    border-bottom: 3px solid var(--primary-color); /* Thicker border */
     display: inline-block;
-    padding-bottom: 5px;
+    padding-bottom: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 .content-section p {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+    line-height: 1.8;
 }
 
 .content-section a {
     color: var(--primary-color);
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
+    transition: color 0.3s ease-in-out;
 }
 
 .content-section a:hover {
+    color: var(--hover-color);
     text-decoration: underline;
 }
 
-/* Special style for the last section (optional) */
+/* For potential code blocks (optional, but good for coding portfolios) */
+code, pre {
+    font-family: 'Fira Code', monospace; /* Monospace font for code */
+    background-color: #3d5269; /* Darker background for code */
+    color: #e0e0e0;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+pre {
+    padding: 10px;
+    overflow-x: auto;
+}
+
+/* Special style for the last section */
 .last-section {
-    border-bottom: none;
-    margin-bottom: 0;
+    border-bottom: none; /* No border for the very last section */
 }
 
 
 /* --- Footer --- */
 footer {
     background: var(--dark-bg);
-    color: #fff;
+    color: var(--text-color);
     text-align: center;
-    padding: 20px 0;
+    padding: 25px 0; /* More padding */
     font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
 }
