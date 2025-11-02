@@ -3,72 +3,284 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <title>Professional Portfolio - Project Showcase</title>
+    <!-- Load Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons --><script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Custom Tailwind Configuration --><script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Custom Palette based on request: Dark Green, Dark Brown, Cream
+                        'dark-green': '#1E392A',    // Main dark background
+                        'dark-brown': '#3A2A1A',    // Header, footer, and active tab background
+                        'cream': '#FAF0DC',         // Text and title color
+                        'moss-green': '#52703e',    // Project Card background
+                        'deep-accent': '#C5AE87',   // Accent color (icons, links, borders)
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Ensures smooth scrolling for navigation */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Styles for the category blocks in Mathematics and placeholder in Mycology */
+        .category-block {
+            background-color: theme('colors.moss-green'); /* Use moss-green for these blocks */
+            color: theme('colors.cream');
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+            border-radius: 0.75rem; /* rounded-xl */
+            padding: 1.5rem; /* p-6 */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .category-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        }
 
-    <header class="navbar">
-        <div class="container">
-            <a href="#home" class="logo">Your Name/Alias</a>
-            <nav>
-                <a href="#cryptography">Cryptography</a>
-                <a href="#cybersecurity">Cybersecurity</a>
-                <a href="#mathematics">Mathematics</a>
-                <a href="#mycology">Mycology</a>
-                <a href="other-projects/" target="_blank">Other Projects</a>
+        /* Mycology intro block */
+        .mycology-intro-block {
+            background-color: theme('colors.dark-brown'); /* Darker background for prominence */
+            color: theme('colors.cream');
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            border-radius: 0.75rem; /* rounded-xl */
+            padding: 2.5rem; /* Increased padding for visual weight */
+        }
+
+        /* Generic placeholder box style */
+        .placeholder-box {
+            background-color: theme('colors.dark-green');
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px; /* Ensure it has some height */
+            color: theme('colors.cream');
+            opacity: 0.7;
+            border: 1px dashed theme('colors.deep-accent');
+        }
+    </style>
+</head>
+<body class="bg-dark-green text-cream font-sans min-h-screen">
+
+    <!-- Header & Navigation --><header class="bg-dark-brown shadow-xl sticky top-0 z-10 border-b border-deep-accent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-deep-accent">Trill White</h1>
+            <nav class="hidden md:flex space-x-6 text-lg">
+                <a href="#mathematics" class="text-cream hover:text-deep-accent transition duration-150">Mathematics</a>
+                <a href="#cryptography" class="text-cream hover:text-deep-accent transition duration-150">Cryptography</a>
+                <a href="#networking" class="text-cream hover:text-deep-accent transition duration-150">Networking</a>
+                <a href="#mycology" class="text-cream hover:text-deep-accent transition duration-150">Mycology</a>
+                <a href="#misc" class="text-cream hover:text-deep-accent transition duration-150">Misc</a>
             </nav>
+            <!-- Mobile menu button - Add JS for functionality if needed --><button class="md:hidden text-cream hover:text-deep-accent">
+                <i data-lucide="menu" class="w-7 h-7"></i>
+            </button>
         </div>
     </header>
 
-    <main>
-        <section id="home" class="hero-section">
-            <div class="container">
-                <h1>Welcome to My Portfolio</h1>
-                <p>A showcase of work in technology, science, and more.</p>
-                <p class="scroll-prompt">Scroll down or use the navigation above to explore.</p>
+    <!-- Hero Section (Starting point) -->
+    <section id="hero" class="pt-24 pb-20 md:pt-32 md:pb-28 min-h-screen flex items-center bg-dark-green">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-cream mb-4 tracking-tight leading-tight">
+                Public knowledge repo
+            </h1>
+            <p class="text-xl md:text-2xl text-deep-accent font-light mb-8 max-w-3xl mx-auto">
+                This site coveres the intersection of my interest in secure computation, theoretical structures, and natural systems such as mycological networks.  I use this blog to host projects I am working on, as well as previous work I have completed.
+            </p>
+            <a href="#mathematics" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-lg text-dark-green bg-cream hover:bg-deep-accent hover:text-dark-brown transition duration-300 shadow-xl transform hover:scale-[1.02]">
+                Explore Content
+                <i data-lucide="arrow-down" class="w-5 h-5 ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+
+        <!-- Section: Mathematics -->
+        <section id="mathematics" class="mb-16 px-8">
+            <h2 class="text-4xl font-extrabold text-deep-accent mb-8 border-b-2 border-deep-accent pb-2 ml-4">
+                Mathematics
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6">
+
+                <!-- Mathematics Category: Number Theory --><a href="https://github.com" target="_blank" class="project-card block bg-moss-green p-6 rounded-xl shadow-lg transition duration-300 transform hover:scale-[1.02] hover:bg-[#5D876F] active:scale-[0.98]">
+                    <i data-lucide="sigma" class="w-10 h-10 text-deep-accent mb-4"></i>
+                    <h3 class="text-2xl font-medium text-cream mb-1 flex items-center justify-between">
+                       Number Theory
+                        <i data-lucide="external-link" class="w-5 h-5 text-deep-accent"></i>
+                    </h3>
+                    <p class="text-sm text-cream opacity-80">
+                         Work in progress.
+                    </p>
+                </a>
+                
+
+                <!-- Mathematics Category: Chaos Theory -->
+            <a href="https://github.com" target="_blank" class="project-card block bg-moss-green p-6 rounded-xl shadow-lg transition duration-300 transform hover:scale-[1.02] hover:bg-[#5D876F] active:scale-[0.98]">
+                    <i data-lucide="radical" class="w-10 h-10 text-deep-accent mb-4"></i>
+                    <h3 class="text-2xl font-medium text-cream mb-1 flex items-center justify-between">
+                       Fractals and Chaos Theory
+                        <i data-lucide="external-link" class="w-5 h-5 text-deep-accent"></i>
+                    </h3>
+                    <p class="text-sm text-cream opacity-80">
+                    WORK IN PROGRESS: Simulations of complex systems like the Lorenz attractor and Mandelbrot sets, visualising emergent behavior and fractal dimensions.
+                    </p>
+                </a>                
+        </section>
+
+
+   <!-- Section: Cryptography (formerly Mathematics) --><section id="cryptography" class="mb-16 px-8">
+            <h2 class="text-4xl font-extrabold text-deep-accent mb-8 border-b-2 border-deep-accent pb-2 ml-4">
+                Cryptography
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6">
+
+                <!-- Cryptography Category: Lattice-Based Schemes --><a href="https://github.com/userthatwasnttaken/cryptography_beginner" target="_blank" class="project-card block bg-moss-green p-6 rounded-xl shadow-lg transition duration-300 transform hover:scale-[1.02] hover:bg-[#5D876F] active:scale-[0.98]">
+                    <i data-lucide="key-round" class="w-10 h-10 text-deep-accent mb-4"></i>
+                    <h3 class="text-2xl font-medium text-cream mb-1 flex items-center justify-between">
+                        Lattice-Based Schemes
+                        <i data-lucide="external-link" class="w-5 h-5 text-deep-accent"></i>
+                    </h3>
+                    <p class="text-sm text-cream opacity-80">
+                        A comment of research into post-quantum cryptography, including the security and implementation of Learning With Errors (LWE) and Shortest Vector Problem (SVP).
+                    </p>
+                </a>
+
+                <!-- Cryptography Category: Zero-Knowledge Proofs --><a href="https://github.com/userthatwasnttaken/cryptography_beginner" target="_blank" class="project-card block bg-moss-green p-6 rounded-xl shadow-lg transition duration-300 transform hover:scale-[1.02] hover:bg-[#5D876F] active:scale-[0.98]">
+                    <i data-lucide="fingerprint" class="w-10 h-10 text-deep-accent mb-4"></i>
+                    <h3 class="text-2xl font-medium text-cream mb-1 flex items-center justify-between">
+                        Zero-Knowledge Proofs (ZKP)
+                        <i data-lucide="external-link" class="w-5 h-5 text-deep-accent"></i>
+                    </h3>
+                    <p class="text-sm text-cream opacity-80">
+                        WORK IN PROGRESS: Conceptual implementation and analysis of non-interactive zero-knowledge protocols (e.g., Zk-SNARKs) for privacy-preserving verification.  Mostly from my understanding of works.
+                    </p>
+                </a>
+
+                <!-- Cryptography Category: BKZ-LLL --><a href="https://github.com/userthatwasnttaken/cryptography_beginner" target="_blank" class="project-card block bg-moss-green p-6 rounded-xl shadow-lg transition duration-300 transform hover:scale-[1.02] hover:bg-[#5D876F] active:scale-[0.98]">
+                    <i data-lucide="layout-grid" class="w-10 h-10 text-deep-accent mb-4"></i>
+                    <h3 class="text-2xl font-medium text-cream mb-1 flex items-center justify-between">
+                        BKZ-LLL Optimisations
+                        <i data-lucide="external-link" class="w-5 h-5 text-deep-accent"></i>
+                    </h3>
+                    <p class="text-sm text-cream opacity-80">
+                        Particularly focused on pump-and-dump or dynamic BKZ modelling.  See GitHub Project and papers referenced:
+                    </p>
+                </a>
             </div>
         </section>
 
-        <section id="cryptography" class="content-section">
-            <div class="container">
-                <h2>🔐 Cryptography</h2>
-                <p>Details about your projects, research, or interests in encryption, ciphers, and secure communications go here.</p>
-                <a href="#">Link to Project 1</a> | <a href="#">Link to Project 2</a>
+
+        <!-- Section: Networking -->
+        <section id="networking" class="mb-16 px-8">
+            <h2 class="text-4xl font-extrabold text-deep-accent mb-8 border-b-2 border-deep-accent pb-2 ml-4">
+                Networking
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Project 7: SDN Controller --><a href="https://github.com/" target="_blank" class="project-card block bg-moss-green p-6 rounded-xl shadow-lg transition duration-300 transform hover:scale-[1.02] hover:bg-[#5D876F] active:scale-[0.98]">
+                    <i data-lucide="radio-tower" class="w-10 h-10 text-deep-accent mb-4"></i>
+                    <h3 class="text-2xl font-medium text-cream mb-1 flex items-center justify-between">
+                        SDN Controller and DoS Preventative Peer Support
+                        <i data-lucide="external-link" class="w-5 h-5 text-deep-accent"></i>
+                    </h3>
+                    <p class="text-sm text-cream opacity-80">
+                        A Python-based Software-Defined Networking (SDN) controller for managing network traffic flows in a virtualized environment.  DOS Preventative capabilities through the use of a peer-supported network.
+                    </p>
+                </a>
+
+                <!-- Project 8: LEO Satellite Routing --><a href="" target="_blank" class="project-card block bg-moss-green p-6 rounded-xl shadow-lg transition duration-300 transform hover:scale-[1.02] hover:bg-[#5D876F] active:scale-[0.98]">
+                    <i data-lucide="satellite" class="w-10 h-10 text-deep-accent mb-4"></i><h3 class="text-2xl font-medium text-cream mb-1 flex items-center justify-between">
+                        LEO Satellite Routing Simulation
+                        <i data-lucide="external-link" class="w-5 h-5 text-deep-accent"></i>
+                    </h3>
+                    <p class="text-sm text-cream opacity-80">
+                        WORK IN PROGRESS: Simulation of dynamic routing algorithms for Low Earth Orbit (LEO) satellite constellations, optimising for latency and throughput.
+                    </p>
+                </a>
+
+                <!-- Project 9: Network Intrusion Detection System --><a href="" target="_blank" class="project-card block bg-moss-green p-6 rounded-xl shadow-lg transition duration-300 transform hover:scale-[1.02] hover:bg-[#5D876F] active:scale-[0.98]">
+                    <i data-lucide="shield-half" class="w-10 h-10 text-deep-accent mb-4"></i>
+                    <h3 class="text-2xl font-medium text-cream mb-1 flex items-center justify-between">
+                        NIDS with Machine Learning based on BPH
+                        <i data-lucide="external-link" class="w-5 h-5 text-deep-accent"></i>
+                    </h3>
+                    <p class="text-sm text-cream opacity-80">
+                        A Network Intrusion Detection System utilising machine learning models to identify and alert on anomalous network traffic patterns.  Specifically, content that mimics that way Bullet-Proof Hosted sites.
+                    </p>
+                </a>
             </div>
         </section>
 
-        <section id="cybersecurity" class="content-section">
-            <div class="container">
-                <h2>🛡️ Cybersecurity</h2>
-                <p>Showcase your work on penetration testing, security analysis, digital forensics, or general cyber defense strategies.</p>
-                <a href="#">Link to Tool/Writeup</a> | <a href="#">Link to Certification</a>
-            </div>
+        <!-- Section: Mycology -->
+        <section id="mycology" class="mb-16 px-8">
+            <h2 class="text-4xl font-extrabold text-deep-accent mb-8 border-b-2 border-deep-accent pb-2 ml-4">
+                Mycology
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Mycology Category: Identification --><a href="https://github.com" target="_blank" class="project-card block bg-moss-green p-6 rounded-xl shadow-lg transition duration-300 transform hover:scale-[1.02] hover:bg-[#5D876F] active:scale-[0.98]">
+                    <i data-lucide="search" class="w-10 h-10 text-deep-accent mb-4"></i><h3 class="text-2xl font-medium text-cream mb-1 flex items-center justify-between">
+                        Edible identification
+                        <i data-lucide="external-link" class="w-5 h-5 text-deep-accent"></i>
+                    </h3>
+                    <p class="text-sm text-cream opacity-80">
+                        Edible Species often have many poisonous look a-likes, and this project goes into depth to provide accurate up to date referencing guides and materials to aid positive identification.
+                    </p>
+                </a>
+
+                <!-- Project 5: Mycology Growing --><a href="https://github.com" target="_blank" class="project-card block bg-moss-green p-6 rounded-xl shadow-lg transition duration-300 transform hover:scale-[1.02] hover:bg-[#5D876F] active:scale-[0.98]">
+                    <i data-lucide="flower" class="w-10 h-10 text-deep-accent mb-4"></i><h3 class="text-2xl font-medium text-cream mb-1 flex items-center justify-between">
+                        Cultivation Projects 
+                        <i data-lucide="external-link" class="w-5 h-5 text-deep-accent"></i>
+                    </h3>
+                    <p class="text-sm text-cream opacity-80">
+                         Personal blog on cultivation of several types of fungi including edulis boletus, Pleurotus ostreatus (Oyster Mushroom) growth, and other kinds.
+                    </p>
+                </a>
         </section>
 
-        <section id="mathematics" class="content-section">
-            <div class="container">
-                <h2>➕ Mathematics</h2>
-                <p>Examples of your work in abstract algebra, number theory (highly relevant to cryptography), statistics, or data analysis.</p>
-                <a href="#">Link to Paper/Notebook</a>
-            </div>
-        </section>
+        <!-- Section: Miscellaneous Projects --><section id="misc" class="mb-16 px-8">
+            <h2 class="text-4xl font-extrabold text-deep-accent mb-8 border-b-2 border-deep-accent pb-2 ml-4">
+                Miscellaneous Projects
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-        <section id="mycology" class="content-section last-section">
-            <div class="container">
-                <h2>🍄 Mycology</h2>
-                <p>Your passion for fungi! Include links to identification guides, citizen science projects, or research on fungal ecosystems.</p>
-                <a href="#">Link to Photo Gallery</a> | <a href="#">Link to Field Notes</a>
-            </div>
+                <!-- Project 10: Digital Forensics Tool --><a href="https://github.com/userthatwasnttaken/arty/tree/main" target="_blank" class="project-card block bg-moss-green p-6 rounded-xl shadow-lg transition duration-300 transform hover:scale-[1.02] hover:bg-[#5D876F] active:scale-[0.98]">
+                    <i data-lucide="hat-glasses" class="w-10 h-10 text-deep-accent mb-4"></i><h3 class="text-2xl font-medium text-cream mb-1 flex items-center justify-between">
+                        Perl Digital Forensics Suite
+                        <i data-lucide="external-link" class="w-5 h-5 text-deep-accent"></i>
+                    </h3>
+                    <p class="text-sm text-cream opacity-80">
+                        A command-line based digital forensics tool in Perl for file recovery and analysis, inspired by the capabilities of Autopsy.  Will detect hidden files according to blocks missing in the code.
+                    </p>
+                </a>
+
+                <!-- Project 11: Artwork Gallery --><a href="https://github.com/userthatwasnttaken/arty/tree/main" target="_blank" class="project-card block bg-moss-green p-6 rounded-xl shadow-lg transition duration-300 transform hover:scale-[1.02] hover:bg-[#5D876F] active:scale-[0.98]">
+                    <i data-lucide="palette" class="w-10 h-10 text-deep-accent mb-4"></i><h3 class="text-2xl font-medium text-cream mb-1 flex items-center justify-between">
+                        Abstract Artwork Gallery
+                        <i data-lucide="external-link" class="w-5 h-5 text-deep-accent"></i>
+                    </h3>
+                    <p class="text-sm text-cream opacity-80">
+                        A collection of abstract visual patterns and mixed-medium art pieces, primarily focused on canvas works.
+                    </p>
+                </a>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Your Name. Built for GitHub Pages.</p>
-        </div>
+    <footer class="bg-dark-brown text-center py-6 border-t border-deep-accent">
+        <p class="text-sm text-cream opacity-70">&copy; 2025 Project Compendium | All Rights Reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Initialize Lucide Icons --><script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
+
