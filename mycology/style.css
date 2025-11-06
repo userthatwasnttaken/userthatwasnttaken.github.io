@@ -1,0 +1,23 @@
+
+:root {
+    --light-brown-bg: #f9f4e8; /* Hex code for a very light, warm beige/cream */
+    --text-color: #333333;
+}
+
+body {
+    background-color: var(--light-brown-bg);
+    
+    color: var(--text-color);
+    
+    /* Use Source Code Pro as the primary font, with monospace as a fallback */
+    font-family: "Source Code Pro", monospace;
+    
+    font-size: 16px;
+    
+    padding: 20px;
+    margin: 0;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 600; /* Semibold for prominence */
+}
